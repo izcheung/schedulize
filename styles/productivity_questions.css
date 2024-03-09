@@ -1,0 +1,66 @@
+html, body {
+    height: 100%; /* Ensure the body takes up full viewport height */
+    margin: 0; /* Remove default margin */
+    background: linear-gradient(rgba(134, 152, 216, 0.7), rgba(12, 88, 169, 0.7)); /* Apply background to entire page */
+    background-size: cover; /* Cover the entire page */
+    font-size: 20px;
+}
+
+#questionnaire {
+    background-color: #fff; /* Light background for the form area */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+    max-width: 600px; /* Consistent width with other forms */
+    margin: 40px auto; /* Center the form on the page */
+}
+
+#question {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #1936B6; /* Thematic blue color for questions */
+}
+
+#answers li {
+    list-style-type: none;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+#answers li:hover {
+    background-color: #e0e0e0; /* Slightly darker on hover */
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #1936B6; /* Thematic blue color for the result */
+    text-align: center; /* Center-align the result text */
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f8f9fa; /* Light background for result */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for the result box */
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #1936B6; /* Thematic blue color for buttons */
+    border-color: #1936B6;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block; /* Align buttons next to each other */
+    text-decoration: none; /* Remove underline from links styled as buttons */
+    margin-top: 15px; /* Space above the button */
+}
+
+.btn-primary:hover {
+    background-color: #1654b4; /* Slightly darker blue on hover */
+    border-color: #1654b4;
+}
