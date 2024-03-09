@@ -37,7 +37,7 @@ app.post('/register', async (req, res) => {
     const { email, password } = req.body;
 
     if ((await user_login_model.find({'email': email})).length === 0) {
-        return res.status(400).send({'error': 'Email already associated with an account.'});
+        return res.status(400).send('Email already associated with an account.');
     }
 
     const hashed_password = await bcrypt.hash(password, salt_rounds);
@@ -65,12 +65,12 @@ app.post('/login', async (req, res) => {
     if (await bcrypt.compare(password, login_info['password'])) {
         res.status(200).send('Login successful');
     } else {
-        res.status(401).send({'error': 'Incorrect password.'}); // 401 is technically wrong here 
+        res.status(401).send('Incorrect password.'); // 401 is technically wrong here 
     }
 });
 
 app.get('/', async (req, res) => {
-    return res.status(500).json({'error': 'Server is blank right now'});
+    return res.status(500).send('Server is blank right now');
 });
 
 const PORT = 3000;
