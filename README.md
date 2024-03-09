@@ -16,3 +16,6 @@ Peter Senyk
 
 
 # About the webapp
+
+# Sources
+logo image - https://cdn.iconscout.com/icon/free/png-256/free-calendar-2065964-1746113.png

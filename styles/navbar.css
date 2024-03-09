@@ -11,7 +11,7 @@
 
 .navbar-brand img {
     transition: transform 0.5s ease; /* Smooth scaling transition */
-    max-height: 36px; /* Adjust the logo height */
+    max-height: 100px; /* Adjust the logo height */
 }
 
 .navbar-brand:hover img {
