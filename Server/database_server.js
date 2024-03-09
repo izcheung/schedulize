@@ -72,7 +72,7 @@ app.post('/register', async (req, res) => {
 
     login_instance.save();
 
-    req.session.user = true;
+    req.session.user = true; // TODO - change to uniquely identifying part of user document
     req.session.uID = null; // TODO - change to username / w/e we want to display
 
     res.status(200).send('Registration successful');
@@ -108,7 +108,7 @@ app.post('/login', async (req, res) => {
     }
 
     if (validated) {
-        req.session.user = true;
+        req.session.user = true; // TODO - change to uniquely identifying part of user document
         req.session.uID = null; // TODO - change to username / w/e we want to display
 
         res.status(200).send('Login successful');
@@ -116,6 +116,21 @@ app.post('/login', async (req, res) => {
     } else {
         res.status(401).send('Incorrect password.'); // 401 is technically wrong here 
     }
+});
+
+app.post('/form/course',(req, res) => {
+    if (!req.session || !req.session.user) {
+        return res.status(401).send("User not logged in.");
+    }
+
+    const { courseName, courseInstructor, ...daysTimes } = req.body;
+
+    const course_information = {
+        course: courseName,
+        instructor: courseInstructor,
+    } // TODO - Add the days and times information
+
+    // const course_instance = new course_model(course_information); // TODO - create model, finish course_information object
 });
 
 app.get('/', async (req, res) => {
