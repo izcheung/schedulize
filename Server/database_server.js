@@ -118,7 +118,7 @@ app.post('/login', async (req, res) => {
     }
 });
 
-app.post('/form/course',(req, res) => {
+app.post('/form/course', (req, res) => {
     if (!req.session || !req.session.user) {
         return res.status(401).send("User not logged in.");
     }
@@ -131,6 +131,29 @@ app.post('/form/course',(req, res) => {
     } // TODO - Add the days and times information
 
     // const course_instance = new course_model(course_information); // TODO - create model, finish course_information object
+});
+
+app.post('/form/assignment', (req, res) => {
+    if (!req.session || !req.session.user) {
+        return res.status(401).send("User not logged in.");
+    }
+
+    const { assignment_name, 
+        course_tags, 
+        assignment_hours, 
+        assignment_due_date, 
+        assignment_worth, 
+        ...task_split } = req.body; // TODO - Work out stuff surrounding task_split
+
+    const assignment_information = {
+        assignment: assignment_name,
+        course: course_tags,
+        hours: assignment_hours,
+        due: assignment_due_date,
+        value: assignment_worth
+    }; // TODO - finish object
+
+    // const assignment_instance = new assignment_model(assignment_information); // TODO - finish above
 });
 
 app.get('/auth/status', (req, res) =>{
