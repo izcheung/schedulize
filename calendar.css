@@ -34,7 +34,7 @@ a {
 }
 
 table {
-    border-radius: 2%;
+    border-radius: 1.25%;
     border: 3px white solid;
 }
 
@@ -81,6 +81,7 @@ button{
 .fc .fc-scrollgrid-liquid {
     border: 3px solid white;
 }
+
 
 #calendar {
     margin: 10px;
