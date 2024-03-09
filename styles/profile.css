@@ -74,3 +74,12 @@ html, body {
 .add-course a.btn {
     width: 100%; /* Full-width button for adding new course */
 }
+
+#add_course_btn {
+    background-color: #26558e;
+    color: white;
+}
+
+#your_courses {
+    color: #354754;
+}
