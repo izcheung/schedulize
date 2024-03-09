@@ -8,7 +8,7 @@ app.use(cors());
 
 
 async function connect() {
-    // TODO - connect to database. Local?
+    await mongoose.connect('mongodb+srv://CST:CAitwuZrN9c0DIEH@schedulize.whemhcp.mongodb.net/?retryWrites=true&w=majority&appName=Schedulize'); 
 }
 
 app.get('/', async (req, res) => {
