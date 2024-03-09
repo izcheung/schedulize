@@ -34,7 +34,7 @@
         </h1>
         <div id="form_contents" >
         <!--assignment name-->
-        <label class="px-3">Enter your assignment name:</label>
+        <label class="px-3" for="assignment_name">Enter your assignment name:</label>
         <input type="text" id="assignment_name" value="Assignment">
         
         <div class="my-5"></div>
@@ -60,30 +60,46 @@
         </div>
         <div class="my-5"></div>
         <!--user chooses number of hours-->
-        <label class="p-3">How many hours do you expect this assignment to take?</label>
-        <input type="number" value="3" id="assignent_hours">
+        <label class="p-3" for="assignment_hours">How many hours do you expect this assignment to take?</label>
+        <input type="number" value="3" id="assignment_hours">
         
         <div class="my-5"></div>
 
         <!--choose due date-->
         <label class="px-3">When is your assignment due?</label>
         <input type="date" id="assignment_due_date">
+
+        <div class="my-5"></div>
+
+        <label class="px-3">What percent of your total grade is your assignment worth? </label>
+        <input type="number" id="assignment_worth" min="0" max="100" value="10">
         
         <div class="my-5"></div>
         <!--tasks-->
         <div id="task_split" >
             <label class="p-3">Do you want to split your assignment into tasks?</label><br>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="yes_task_split">
-                <label class="form-check-label" for="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="yes_task_split" >
+                <label class="form-check-label" for="yes_task_split" >
                     Yes
                 </label>
                <label class="px-3"></label>
                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="no_task_split" checked>
-                <label class="form-check-label" for="flexRadioDefault2">
+                <label class="form-check-label" for="no_task_split">
                     No
                 </label>
             
         </div>
+        
+        <div id="num_tasks_div" style="display:none">
+            <label class="p-3">How many tasks do you want to split this into?</label>
+        <input type="number" value="2" id="num_tasks" min="2" max="5">
+        <button type="button" class="btn btn-outline-primary m-3" id="num_tasks_btn">Enter</button>
+        <div id="display_tasks">
+
+        </div>
+        </div>
+
+       
         
         <div class="my-5"></div>
         <button type="button" class="btn btn-outline-primary m-3" id="add_assignment">Add Assignment</button>
@@ -91,6 +107,8 @@
     
     </form>
 </div>
+
+<script src="assignment_form.js"></script>
 </body>
 
 
