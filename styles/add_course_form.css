@@ -1,0 +1,84 @@
+/* add-course.css */
+
+.container {
+    padding-top: 2rem;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Header Styles */
+h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #1936B6;
+}
+
+/* Form Styles */
+.form-label {
+    display: block;
+    margin-bottom: .5rem;
+    color: #1936B6;
+}
+
+.form-control {
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+/* Schedule Time Block Styles */
+.schedule-time-block {
+    border: 1px solid #dee2e6;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background-color: #f8f9fa;
+}
+
+.schedule-day {
+    margin-bottom: 1rem;
+}
+
+.time-input {
+    display: inline-block;
+    width: calc(50% - 0.5rem);
+}
+
+.time-input:not(:last-child) {
+    margin-right: 1rem;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #1936B6;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+}
+
+.btn-add-day {
+    background-color: #28a745;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.btn-remove-day {
+    background-color: #dc3545;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+}
+
+.btn-remove-day:hover {
+    background-color: #c82333;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .time-input {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+}
