@@ -1,0 +1,37 @@
+/*-------------------------------------
+ * NAVBAR
+ *-------------------------------------
+ */
+.small_nav {
+    display: none;
+}
+
+.nav_hamburger {
+    display: none;
+}
+
+.small_nav ul {
+    list-style: none;
+}
+
+.small_nav li {
+    display: inline-block;
+    padding: 0 10px;
+}
+
+#nav_center {
+    display: flex;
+    justify-content: center;
+}
+
+#color_white {
+    color: white;
+}
+
+.user_icon_small .material-symbols-outlined {
+    display: none;
+}
+
+.user_icon_large .material-symbols-outlined {
+    display: none;
+}
