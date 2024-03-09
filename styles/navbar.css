@@ -1,29 +1,76 @@
 /*-------------------------------------
- * NAVBAR
+ * NAVBAR STYLING
  *-------------------------------------
  */
-.material-icons {
-    font-size: 24px; /* Icon size */
+ nav.navbar {
+    background-color: #1936B6; /* Adjust the navbar color */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Soft shadow for depth */
+    padding: 0.5rem 1rem; /* Adjust padding to your preference */
+    z-index: 1000; /* Ensure navbar is above other content */
 }
 
-.nav-text {
-    font-size: 0.75rem; /* Smaller text size */
-    display: block; /* Display as block for alignment */
+.navbar-brand img {
+    transition: transform 0.5s ease; /* Smooth scaling transition */
+    max-height: 36px; /* Adjust the logo height */
 }
 
-/* Additional styles for navbar */
-.navbar-brand {
-    display: flex;
-    align-items: center;
+.navbar-brand:hover img {
+    transform: scale(1.1); /* Slightly enlarge logo on hover */
 }
 
-.nav-link {
-    padding: 8px 0; /* Adjust the padding as needed */
+.navbar .navbar-toggler {
+    border-color: rgba(255,255,255,0.5); /* Toggler icon border */
 }
 
-.nav-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='rgba(255, 255, 255, 0.5)' stroke-width='3' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #fff; /* Set the color for nav link text */
+    font-size: 1rem; /* Set font size for nav link text */
+    margin: 0 0.5rem; /* Space out nav links */
+}
+
+.navbar-nav .nav-item .nav-link .material-symbols-outlined {
+    font-size: 1.5rem; /* Set size for material icons */
+    display: block; /* Stack icons vertically */
+}
+
+.navbar-nav .nav-item .nav-link .nav-text {
+    font-size: 0.75rem; /* Smaller font size for nav text */
+    line-height: 1rem; /* Adjust line height for better visual */
+}
+
+/* On hover, change icon and text color */
+.navbar-nav .nav-item .nav-link:hover .material-symbols-outlined,
+.navbar-nav .nav-item .nav-link:hover .nav-text {
+    color: #FFD700; /* Gold color on hover */
+}
+
+/* Ensure full width links for better clickability */
+.navbar-nav .nav-item .nav-link {
+    width: 100%;
+}
+
+/* Adjust padding and display for larger screens */
+@media (min-width: 768px) {
+    .navbar-nav .nav-item .nav-link {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Adjust navbar link alignment */
+.navbar-collapse {
+    justify-content: flex-end; /* Align navbar items to the end */
+}
+
+/* Additional styles for the active state of the navbar links */
+.navbar-nav .nav-item.active .nav-link,
+.navbar-nav .nav-item.active .nav-link .material-symbols-outlined {
+    color: #FFD700; /* Highlight color for active page */
+    font-weight: bold; /* Make the active link bold */
 }

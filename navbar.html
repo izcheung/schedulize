@@ -13,48 +13,41 @@
     <!-- Google Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="./styles/login.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="../landing_page.html">
-            <img src="./images/logo.png" height="36"> SCHEDULIZE
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item text-center">
-                    <a class="nav-link" href="#">
-                        <span class="material-icons">
-                            today
-                        </span>
-                        <br>
-                        <span class="nav-text">Calendar</span>
-                    </a>
-                </li>
-                <li class="nav-item text-center">
-                    <a class="nav-link" href="../assignment_form.html">
-                        <span class="material-icons">
-                            assignment
-                        </span>
-                        <br>
-                        <span class="nav-text">Assignments</span>
-                    </a>
-                </li>
-                <li class="nav-item text-center">
-                    <a class="nav-link" href="../profile_page.html">
-                        <span class="material-icons">
-                            person
-                        </span>
-                        <br>
-                        <span class="nav-text">Profile</span>
-                    </a>
-                </li>
-            </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <!-- Navbar brand/logo -->
+            <a class="navbar-brand" href="landing_page.html">
+                <img src="./images/logo.png" alt="SCHEDULIZE Logo" height="36"> SCHEDULIZE
+            </a>
+            <!-- Toggler for mobile nav -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span class="material-icons">calendar_today</span>
+                            <span class="nav-text">Calendar</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="assignment_form.html">
+                            <span class="material-icons">assignment</span>
+                            <span class="nav-text">Add Assignment</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile_page.html">
+                            <span class="material-icons">person</span>
+                            <span class="nav-text">Profile</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
