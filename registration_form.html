@@ -12,30 +12,30 @@
     <nav id="navbar_placeholder"></nav>
     <main class="container mt-5">
         <h2 class="text-center">Create Account</h2>
-        <form id="registration-form" class="mt-4">
+        <form id="registration-form" class="mt-4" action="http://localhost:3000/register" method="post">
             <div class="mb-3">
                 <label for="fullName" class="form-label">Full Name</label>
-                <input type="text" class="form-control" id="fullName" required>
+                <input type="text" class="form-control" id="fullName" name="fullName" required>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email Address</label>
-                <input type="email" class="form-control" id="email" required>
+                <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <div class="mb-3">
                 <label for="userName" class="form-label">Username</label>
-                <input type="text" class="form-control" id="userName" required>
+                <input type="text" class="form-control" id="userName" name="userName" required>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" required>
+                <input type="password" class="form-control" id="password" name="password" required>
             </div>
             <div class="mb-3">
                 <label for="school" class="form-label">School</label>
-                <input type="text" class="form-control" id="school">
+                <input type="text" class="form-control" id="school" name="school">
             </div>
             <div class="mb-3">
                 <label for="program" class="form-label">Program</label>
-                <input type="text" class="form-control" id="program">
+                <input type="text" class="form-control" id="program" name="program">
             </div>
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="terms">
