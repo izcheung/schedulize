@@ -75,7 +75,15 @@ app.post('/login', async (req, res) => {
         return res.status(400).send({'error': 'No account associated with email.'});
     }
 
-    if (await bcrypt.compare(password, login_info['password'])) {
+    let validated = false;
+
+    try {
+        validated = await bcrypt.compare(password, login_info[0]['password']);
+    } catch {
+        return res.status(500).send("Error with validating password");
+    }
+
+    if (validated) {
         res.status(200).send('Login successful');
     } else {
         res.status(401).send('Incorrect password.'); // 401 is technically wrong here 
