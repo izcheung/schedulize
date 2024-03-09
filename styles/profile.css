@@ -1,0 +1,38 @@
+.profile-header .profile-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1936B6; /* Dark blue for thematic consistency */
+    text-align: center;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-body .card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.card-body .card-text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.card-body .card-links a {
+    margin-right: 10px;
+}
+
+@media (max-width: 767px) {
+    .card-body .card-links a {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
