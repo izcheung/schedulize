@@ -20,7 +20,7 @@ async function connect() {
 }
 
 const user_login_schema = new mongoose.Schema({
-    user: { // the name of the field
+    email: { // the name of the field
         type: String,
         required: true // NOT NULL
     },
@@ -34,14 +34,15 @@ const user_login_model = mongoose.model('user_login', user_login_schema);
 
 app.post('/register', async (req, res) => {
     const salt_rounds = 10;
-    const { user, password } = req.body;
+    const { email, password } = req.body;
     const hashed_password = await bcrypt.hash(password, salt_rounds);
 
     const login_instance = new user_login_model({
-        user: user,
+        email: email,
         password: hashed_password
     });
 
+    // everything past this point in the method needs to be tested
     login_instance.save((e) => {
         if (e) console.error(e);
     });
