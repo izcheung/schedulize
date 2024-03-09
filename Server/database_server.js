@@ -43,11 +43,27 @@ app.post('/register', async (req, res) => {
     });
 
     // everything past this point in the method needs to be tested
+    // Probably makes multiple copies of the same document
     login_instance.save((e) => {
         if (e) console.error(e);
     });
 
     res.status(200).send('Registration successful');
+});
+
+app.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+    const login_info = await user_login_model.find({'email': email});
+
+    if (login_info.length === 0) {
+        return res.status(400).send({'error': 'No account associated with email.'});
+    }
+
+    if (await bcrypt.compare(password, login_info['password'])) {
+        res.status(200).send('Login successful');
+    } else {
+        res.status(401).send({'error': 'Incorrect password.'}); // 401 is technically wrong here 
+    }
 });
 
 app.get('/', async (req, res) => {
