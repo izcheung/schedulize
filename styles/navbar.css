@@ -3,7 +3,7 @@
  *-------------------------------------
  */
  nav.navbar {
-    background-color: #1936B6; /* Adjust the navbar color */
+     /* Adjust the navbar color */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Soft shadow for depth */
     padding: 0.5rem 1rem; /* Adjust padding to your preference */
     z-index: 1000; /* Ensure navbar is above other content */
@@ -45,7 +45,7 @@
 /* On hover, change icon and text color */
 .navbar-nav .nav-item .nav-link:hover .material-symbols-outlined,
 .navbar-nav .nav-item .nav-link:hover .nav-text {
-    color: #FFD700; /* Gold color on hover */
+    color: #3688d8; /* Gold color on hover */
 }
 
 /* Ensure full width links for better clickability */
@@ -71,6 +71,6 @@
 /* Additional styles for the active state of the navbar links */
 .navbar-nav .nav-item.active .nav-link,
 .navbar-nav .nav-item.active .nav-link .material-symbols-outlined {
-    color: #FFD700; /* Highlight color for active page */
+    color: #3688d8; /* Highlight color for active page */
     font-weight: bold; /* Make the active link bold */
 }
