@@ -73,6 +73,7 @@ app.post('/register', async (req, res) => {
     login_instance.save();
 
     req.session.user = true;
+    req.session.uID = null; // TODO - change to username / w/e we want to display
 
     res.status(200).send('Registration successful');
     // res.redirect(303, 'http://127.0.0.1:5501/landing_page.html');
@@ -108,6 +109,8 @@ app.post('/login', async (req, res) => {
 
     if (validated) {
         req.session.user = true;
+        req.session.uID = null; // TODO - change to username / w/e we want to display
+
         res.status(200).send('Login successful');
         // res.redirect(303, 'http://127.0.0.1:5501/landing_page.html');
     } else {
