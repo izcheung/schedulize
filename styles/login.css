@@ -1,9 +1,26 @@
-body {
-    padding-top: 56px; /* Adjust based on the height of your navbar */
+html, body {
+    height: 100%; /* Ensure the body takes up full viewport height */
+    margin: 0; /* Remove default margin */
+    background: linear-gradient(rgba(134, 152, 216, 0.7), rgba(12, 88, 169, 0.7)); /* Apply background to entire page */
+    background-size: cover; /* Cover the entire page */
+    font-size: 20px;
 }
+
+body {
+    padding-top: px; /* Adjust based on the height of your navbar */
+}
+
 .login-container {
     max-width: 400px; /* Set a max-width for the form */
-    margin-top: 20px; /* Adjust the top margin to move the form closer to the navbar */
+    margin-top: 50px; /* Adjust the top margin to move the form closer to the navbar */
     margin-right: auto; /* Center the form horizontally */
     margin-left: auto; /* Center the form horizontally */
+    padding: 20px; /* Add padding around the form */
+    background: rgba(255, 255, 255, 0.8); /* Optional: Add a slightly transparent background to the form container for better readability */
+    border-radius: 8px; /* Optional: Round corners of the form container */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Add a subtle shadow to the form container */
+}
+
+h1{
+    font-size: 40px;
 }

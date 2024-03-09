@@ -2,36 +2,28 @@
  * NAVBAR
  *-------------------------------------
  */
-.small_nav {
-    display: none;
+.material-icons {
+    font-size: 24px; /* Icon size */
 }
 
-.nav_hamburger {
-    display: none;
+.nav-text {
+    font-size: 0.75rem; /* Smaller text size */
+    display: block; /* Display as block for alignment */
 }
 
-.small_nav ul {
-    list-style: none;
-}
-
-.small_nav li {
-    display: inline-block;
-    padding: 0 10px;
-}
-
-#nav_center {
+/* Additional styles for navbar */
+.navbar-brand {
     display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    padding: 8px 0; /* Adjust the padding as needed */
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-}
-
-#color_white {
-    color: white;
-}
-
-.user_icon_small .material-symbols-outlined {
-    display: none;
-}
-
-.user_icon_large .material-symbols-outlined {
-    display: none;
 }
