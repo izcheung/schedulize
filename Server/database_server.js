@@ -44,7 +44,11 @@ app.post('/register', async (req, res) => {
     const salt_rounds = 10;
     const { email, password } = req.body;
 
-    if ((await user_login_model.find({'email': email})).length === 0) {
+    if (!email || !password) {
+        return res.status(400).send('Must include both email and password.')
+    }
+
+    if ((await user_login_model.find({'email': email})).length !== 0) {
         return res.status(400).send('Email already associated with an account.');
     }
 
@@ -55,9 +59,7 @@ app.post('/register', async (req, res) => {
         password: hashed_password
     });
 
-    login_instance.save((e) => {
-        if (e) console.error(e);
-    });
+    login_instance.save();
 
     res.status(200).send('Registration successful');
 });
@@ -70,6 +72,11 @@ app.post('/register', async (req, res) => {
 */
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
+
+    if (!email || !password) {
+        return res.status(400).send('Must include both email and password.')
+    }
+    
     const login_info = await user_login_model
     .find({'email': email, 'password': {$exists: true}});
 
@@ -77,7 +84,15 @@ app.post('/login', async (req, res) => {
         return res.status(400).send({'error': 'No account associated with email.'});
     }
 
-    if (await bcrypt.compare(password, login_info['password'])) {
+    let validated = false;
+
+    try {
+        validated = await bcrypt.compare(password, login_info[0]['password']);
+    } catch {
+        return res.status(500).send("Error with validating password");
+    }
+
+    if (validated) {
         res.status(200).send('Login successful');
     } else {
         res.status(401).send('Incorrect password.'); // 401 is technically wrong here 

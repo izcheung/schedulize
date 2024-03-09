@@ -8,10 +8,11 @@
     "start": "node server/database_server.js"
   },
   "dependencies": {
+    "bcrypt": ">=5.x",
     "cors": "^2.8.5",
-    "mongoose": "^8.0.2",
     "express": "^4.18.2",
-    "bcrypt": ">=5.x"
+    "fullcalendar": "^6.1.11",
+    "mongoose": "^8.0.2"
   },
   "author": "",
   "license": "ISC",
