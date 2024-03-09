@@ -32,14 +32,24 @@ async function connect() {
 }
 
 const user_login_schema = new mongoose.Schema({
+    full_name: {
+        type: String,
+        required: true
+    },
     email: { // the name of the field
         type: String,
         required: true // NOT NULL
     },
+    user_name: {
+        type: String,
+        required: true
+    },
     password: {
         type: String,
         required: true
-    }
+    },
+    school: String,
+    program: String
 });
 
 const user_login_model = mongoose.model('user_login', user_login_schema);
@@ -53,7 +63,7 @@ const user_login_model = mongoose.model('user_login', user_login_schema);
 */
 app.post('/register', async (req, res) => {
     const salt_rounds = 10;
-    const { email, password } = req.body;
+    const { fullName, email, userName, password, school, program } = req.body;
 
     if (!email || !password) {
         return res.status(400).send('Must include both email and password.')
@@ -66,8 +76,12 @@ app.post('/register', async (req, res) => {
     const hashed_password = await bcrypt.hash(password, salt_rounds);
 
     const login_instance = new user_login_model({
+        full_name: fullName,
         email: email,
-        password: hashed_password
+        user_name: userName,
+        password: hashed_password,
+        school: school,
+        program: program
     });
 
     login_instance.save();
