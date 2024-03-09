@@ -1,7 +1,7 @@
 document.getElementById('registration-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the form from submitting
 
-    var username = document.getElementById('username').value;
+    var username = document.getElementById('userName').value;
     var password = document.getElementById('password').value;
     var email = document.getElementById('email').value;
     // Add more variables as necessary
