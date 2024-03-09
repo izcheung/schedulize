@@ -1,0 +1,48 @@
+body {
+    background: linear-gradient(rgba(134, 152, 216, 0.7), rgba(12, 88, 169, 0.7));
+    font-family: 'Open Sans', sans-serif;
+    padding-top: 0px;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: auto;
+}
+
+h2 {
+    color: #1936B6;
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    font-weight: bold;
+    color: #1936B6;
+}
+
+.btn-primary {
+    background-color: #1936B6;
+    border: none;
+}
+
+.form-check-label {
+    font-size: 0.9rem;
+}
+
+.btn-primary:hover {
+    background-color: #1654b4;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+}

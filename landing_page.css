@@ -62,9 +62,10 @@ nav {
     background-image: linear-gradient(rgba(25, 98, 182, 0.7), rgba(205, 220, 236, 0.7));
 }
 
-#projects{
+#calendar{
     background-image: linear-gradient(rgba(134, 152, 216, 0.7), rgba(12, 88, 169, 0.7));
 }
+
 .material-symbols-outlined{
     background-color: transparent;
 }
