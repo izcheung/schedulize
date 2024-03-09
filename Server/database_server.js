@@ -42,7 +42,8 @@ const assignment_schema = new mongoose.Schema({
     },
     hours: {
         type: Number,
-        required: true
+        required: true,
+        min: 0
     },
     due: {
         type: Date,
@@ -50,7 +51,8 @@ const assignment_schema = new mongoose.Schema({
     },
     value: {
         type: Number,
-        required: true
+        required: true,
+        min: 0
     }
 });
 
