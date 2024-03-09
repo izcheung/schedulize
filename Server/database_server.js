@@ -31,6 +31,41 @@ async function connect() {
     .connect('mongodb+srv://CST:CAitwuZrN9c0DIEH@schedulize.whemhcp.mongodb.net/?retryWrites=true&w=majority&appName=Schedulize'); 
 }
 
+const assignment_schema = new mongoose.Schema({
+    assignment: {
+        type: String,
+        required: true
+    },
+    course: {
+        type: String,
+        required: true
+    },
+    hours: {
+        type: Number,
+        required: true
+    },
+    due: {
+        type: Date,
+        required: true
+    },
+    value: {
+        type: Number,
+        required: true
+    }
+});
+
+const course_schema = new mongoose.Schema({
+    course: {
+        type: String,
+        required: true
+    },
+    instructor: {
+        type: String,
+        required: true
+    },
+    // TODO - Figure out how to store the times / days
+});
+
 const user_login_schema = new mongoose.Schema({
     full_name: {
         type: String,
@@ -49,7 +84,8 @@ const user_login_schema = new mongoose.Schema({
         required: true
     },
     school: String,
-    program: String
+    program: String,
+    assignments: [assignment_schema]
 });
 
 const user_login_model = mongoose.model('user_login', user_login_schema);
@@ -102,10 +138,10 @@ app.post('/register', async (req, res) => {
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
-    if (!email || !password) {
+    if (!email || !password) { // TODO - update this to check that all required items are present
         return res.status(400).send('Must include both email and password.')
     }
-    
+
     const login_info = await user_login_model
     .find({'email': email, 'password': {$exists: true}}); // queries the DB
 
@@ -132,6 +168,9 @@ app.post('/login', async (req, res) => {
     }
 });
 
+/*
+* Course regitration route.
+*/
 app.post('/form/course', (req, res) => {
     if (!req.session || !req.session.user) {
         return res.status(401).send("User not logged in.");
