@@ -286,22 +286,6 @@ h2{
     }
 }
 
-
-.calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-  }
-  
-  .month {
-    grid-column: span 7;
-    text-align: center;
-  }
-  
-  .day, .date {
-    padding: 1em;
-    text-align: center;
-  }
-  
   @media (max-width: 600px) {
     .day, .date {
       padding: 0.5em;
@@ -309,32 +293,4 @@ h2{
   }
   body {
     font-family: Arial, sans-serif;
-}
-#calendar {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-}
-#calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-}
-
-#calendar-body {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 1px;
-    background-color: #333;
-}
-#calendar-body div {
-    padding: 20px;
-    background-color: #fff;
-    text-align: center;
-}
-.change-month {
-    cursor: pointer;
 }
