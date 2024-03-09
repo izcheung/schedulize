@@ -35,6 +35,11 @@ const user_login_model = mongoose.model('user_login', user_login_schema);
 app.post('/register', async (req, res) => {
     const salt_rounds = 10;
     const { email, password } = req.body;
+
+    if ((await user_login_model.find({'email': email})).length === 0) {
+        return res.status(400).send({'error': 'Email already associated with an account.'});
+    }
+
     const hashed_password = await bcrypt.hash(password, salt_rounds);
 
     const login_instance = new user_login_model({
@@ -42,8 +47,6 @@ app.post('/register', async (req, res) => {
         password: hashed_password
     });
 
-    // everything past this point in the method needs to be tested
-    // Probably makes multiple copies of the same document
     login_instance.save((e) => {
         if (e) console.error(e);
     });
