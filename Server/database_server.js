@@ -44,6 +44,10 @@ app.post('/register', async (req, res) => {
     const salt_rounds = 10;
     const { email, password } = req.body;
 
+    if (!email || !password) {
+        return res.status(400).send('Must include both email and password.')
+    }
+
     if ((await user_login_model.find({'email': email})).length !== 0) {
         return res.status(400).send('Email already associated with an account.');
     }
@@ -68,6 +72,11 @@ app.post('/register', async (req, res) => {
 */
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
+
+    if (!email || !password) {
+        return res.status(400).send('Must include both email and password.')
+    }
+    
     const login_info = await user_login_model
     .find({'email': email, 'password': {$exists: true}});
 
