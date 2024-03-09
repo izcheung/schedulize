@@ -1,4 +1,10 @@
-/* add-course.css */
+html, body {
+    height: 100%; /* Ensure the body takes up full viewport height */
+    margin: 0; /* Remove default margin */
+    background: linear-gradient(rgba(134, 152, 216, 0.7), rgba(12, 88, 169, 0.7)); /* Apply background to entire page */
+    background-size: cover; /* Cover the entire page */
+    font-size: 20px;
+}
 
 .container {
     padding-top: 2rem;
