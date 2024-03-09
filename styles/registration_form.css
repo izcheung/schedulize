@@ -6,31 +6,36 @@ body {
 }
 
 .container {
-    background-color: #ffffff;
-    padding: 20px;
+    border: 2px white solid;
+    /* background-color: #ffffff; */
+    padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 500px;
-    margin: auto;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+    max-width: 400px;
 }
 
+
 h2 {
-    color: #1936B6;
-    margin-bottom: 1.5rem;
+    color: white;
+    /* margin-bottom: 1.5rem; */
 }
 
 .form-label {
     font-weight: bold;
-    color: #1936B6;
+    color: white;
+    text-shadow: 0.1px 0.1px 0.1px black;
+    /* color: #1936B6; */
 }
 
-.btn-primary {
-    background-color: #1936B6;
+
+.btn .btn-primary{
+    background-color: #3688d8;
     border: none;
 }
 
 .form-check-label {
-    font-size: 0.9rem;
+    color: white;
+    text-shadow: 0.1px 0.1px 0.1px black;
 }
 
 .btn-primary:hover {
@@ -41,8 +46,25 @@ h2 {
     width: 100%;
 }
 
+
+#create_account {
+    color: white;
+    text-shadow: 0.1px 0.1px 0.1px black;
+    letter-spacing: 2px;
+}
+
+#register_btn{
+    color: white;
+    border: 2px white solid;
+    background-color: transparent;
+    letter-spacing: 2px;
+
+}
+
+
+
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: 15%;
     }
 }
