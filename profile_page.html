@@ -30,45 +30,58 @@
 <body>
     <nav id="navbar_placeholder"></nav>
 
-    <main>
+    <main class="mt-5">
         <div class="container">
-            <h1>Profile</h1>
-            <div class="row">
-                <div class="col-4">
-                    <div class="card" style="width: 18rem;">
-                        <img src="./images/profile_pic.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <span class="material-symbols-outlined">
-                                    person
-                                </span>
-                                Username
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="profile-header mb-4">
+                        <h1 class="profile-title">Your Profile</h1>
+                        <hr>
+                    </div>
+                    <div class="profile-content">
+                        <div class="card mb-3">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="./images/default_profile.png" class="img-fluid rounded-start" alt="Profile Picture">
                                 </div>
-                            <ul class="list-group  list-group-flush">
-                                <li class="list-group-item">
-                                    <span class="material-symbols-outlined">
-                                        email
-                                    </span>
-                                    Email Address 
-                                </li>
-                                <li class="list-group-item">
-                                    <span class="material-symbols-outlined">
-                                        school
-                                    </span>
-                                    School
-                                </li>
-                                <li class="list-group -item">
-                                    <span class="material-symbols-outlined">
-                                        grade
-                                    </span>
-                                    Program
-                                </li>
-                            </ul>
-                            <div class="card-body">
-                                <a href="#" class="card-link">Edit Profile</a>
-                                <a href="#" class="card-link">Log Out</a>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title mb-3">
+                                            <span class="material-symbols-outlined">
+                                                person
+                                            </span>
+                                            Username
+                                        </h5>
+                                        <p class="card-text">
+                                            <span class="material-symbols-outlined">
+                                                email
+                                            </span>
+                                            user@example.com
+                                        </p>
+                                        <p class="card-text">
+                                            <span class="material-symbols-outlined">
+                                                school
+                                            </span>
+                                            School Name
+                                        </p>
+                                        <p class="card-text">
+                                            <span class="material-symbols-outlined">
+                                                grade
+                                            </span>
+                                            Program or Degree
+                                        </p>
+                                        <div class="card-links">
+                                            <a href="#" class="btn btn-primary">Edit Profile</a>
+                                            <a href="#" class="btn btn-secondary">Log Out</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!---------Scripts--------->
