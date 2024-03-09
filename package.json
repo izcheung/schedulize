@@ -4,8 +4,17 @@
   "description": "TBD",
   "main": "database_server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node database_server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "mongoose": "^8.0.2",
+    "express": "^4.18.2"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.x"
+  }
 }
