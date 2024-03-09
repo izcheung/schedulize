@@ -84,7 +84,7 @@ app.post('/register', async (req, res) => {
         program: program
     });
 
-    login_instance.save();
+    login_instance.save(); // writes to the DB
 
     req.session.user = true; // TODO - change to uniquely identifying part of user document
     req.session.uID = null; // TODO - change to username / w/e we want to display
@@ -107,7 +107,7 @@ app.post('/login', async (req, res) => {
     }
     
     const login_info = await user_login_model
-    .find({'email': email, 'password': {$exists: true}});
+    .find({'email': email, 'password': {$exists: true}}); // queries the DB
 
     if (login_info.length === 0) {
         return res.status(400).send({'error': 'No account associated with email.'});
