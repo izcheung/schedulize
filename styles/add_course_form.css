@@ -64,7 +64,7 @@ h2 {
 
 #add-schedule {
     display: block; /* Ensure it's block level for full width */
-    width: 100%; /* Full width button */
+    width: 20%; /* Full width button */
 }
 
 @media (max-width: 768px) {
