@@ -23,14 +23,23 @@ input[type=text], input[type=number], input[type=date]{
 #add_assignment{
     background-color: rgba(8, 62, 120, 0.7);
     color:white;
-    border-color:white;
+    border-color:rgba(8, 62, 120, 0.7);
     font-size: 30px;
+
+    
+}
+
+#add_assignment:hover, #num_tasks_btn:hover{
+    background-color: white;
+    color: rgba(8, 62, 120, 0.7);
 }
 
 #num_tasks_btn{
     background-color: rgba(8, 62, 120, 0.7);
     color:white;
-    border-color:white;
+    border-color:rgba(8, 62, 120, 0.7);
+
+    
 }
 
 input{
