@@ -2,15 +2,17 @@
   "name": "schedulize",
   "version": "1.0.0",
   "description": "TBD",
-  "main": "database_server.js",
+  "main": "server/database_server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node database_server.js"
+    "start": "node server/database_server.js"
   },
   "dependencies": {
+    "bcrypt": ">=5.x",
     "cors": "^2.8.5",
-    "mongoose": "^8.0.2",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "fullcalendar": "^6.1.11",
+    "mongoose": "^8.0.2"
   },
   "author": "",
   "license": "ISC",
