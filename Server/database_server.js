@@ -44,7 +44,7 @@ app.post('/register', async (req, res) => {
     const salt_rounds = 10;
     const { email, password } = req.body;
 
-    if ((await user_login_model.find({'email': email})).length === 0) {
+    if ((await user_login_model.find({'email': email})).length !== 0) {
         return res.status(400).send('Email already associated with an account.');
     }
 
@@ -55,9 +55,7 @@ app.post('/register', async (req, res) => {
         password: hashed_password
     });
 
-    login_instance.save((e) => {
-        if (e) console.error(e);
-    });
+    login_instance.save();
 
     res.status(200).send('Registration successful');
 });
