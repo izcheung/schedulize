@@ -16,7 +16,8 @@ app.use(express.urlencoded({extended: true}));
  * Connects to the MongoDB cluster.
  */
 async function connect() {
-    await mongoose.connect('mongodb+srv://CST:CAitwuZrN9c0DIEH@schedulize.whemhcp.mongodb.net/?retryWrites=true&w=majority&appName=Schedulize'); 
+    await mongoose
+    .connect('mongodb+srv://CST:CAitwuZrN9c0DIEH@schedulize.whemhcp.mongodb.net/?retryWrites=true&w=majority&appName=Schedulize'); 
 }
 
 const user_login_schema = new mongoose.Schema({
@@ -32,6 +33,13 @@ const user_login_schema = new mongoose.Schema({
 
 const user_login_model = mongoose.model('user_login', user_login_schema);
 
+/*
+* Register route.
+*
+* This route handles user registration. The password is encoded using 
+* bcrypt, and then stored on the database.
+* If the user's email is already associated with an account, returns 400.
+*/
 app.post('/register', async (req, res) => {
     const salt_rounds = 10;
     const { email, password } = req.body;
@@ -54,9 +62,16 @@ app.post('/register', async (req, res) => {
     res.status(200).send('Registration successful');
 });
 
+/*
+* Login route.
+*
+* This route handles the login procedure. 
+* A user's login document must contain the password field to be considered an account.
+*/
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
-    const login_info = await user_login_model.find({'email': email});
+    const login_info = await user_login_model
+    .find({'email': email, 'password': {$exists: true}});
 
     if (login_info.length === 0) {
         return res.status(400).send({'error': 'No account associated with email.'});
