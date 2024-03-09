@@ -1,0 +1,9 @@
+body {
+    padding-top: 56px; /* Adjust based on the height of your navbar */
+}
+.login-container {
+    max-width: 400px; /* Set a max-width for the form */
+    margin-top: 20px; /* Adjust the top margin to move the form closer to the navbar */
+    margin-right: auto; /* Center the form horizontally */
+    margin-left: auto; /* Center the form horizontally */
+}
