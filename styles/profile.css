@@ -36,3 +36,33 @@
         margin-bottom: 10px;
     }
 }
+
+.courses-section .section-title {
+    font-size: 2rem;
+    color: #1936B6; /* Keeping the thematic consistency */
+}
+
+.course-item {
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.course-name {
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+}
+
+.course-details {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.course-actions .btn {
+    font-size: 0.875rem; /* Slightly smaller buttons for actions */
+}
+
+.add-course a.btn {
+    width: 100%; /* Full-width button for adding new course */
+}
