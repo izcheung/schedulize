@@ -133,6 +133,14 @@ app.post('/form/course',(req, res) => {
     // const course_instance = new course_model(course_information); // TODO - create model, finish course_information object
 });
 
+app.get('/auth/status', (req, res) =>{
+    if (req.session && req.session.uID) {
+        res.status(200).send(req.session.uID);
+    } else {
+        res.status(200).send(null);
+    }
+});
+
 app.get('/', async (req, res) => {
     return res.status(500).send('Server is blank right now');
 });
