@@ -31,15 +31,63 @@ async function connect() {
     .connect('mongodb+srv://CST:CAitwuZrN9c0DIEH@schedulize.whemhcp.mongodb.net/?retryWrites=true&w=majority&appName=Schedulize'); 
 }
 
+const assignment_schema = new mongoose.Schema({
+    assignment: {
+        type: String,
+        required: true
+    },
+    course: {
+        type: String,
+        required: true
+    },
+    hours: {
+        type: Number,
+        required: true,
+        min: 0
+    },
+    due: {
+        type: Date,
+        required: true
+    },
+    value: {
+        type: Number,
+        required: true,
+        min: 0
+    }
+});
+
+const course_schema = new mongoose.Schema({
+    course: {
+        type: String,
+        required: true
+    },
+    instructor: {
+        type: String,
+        required: true
+    },
+    // TODO - Figure out how to store the times / days
+});
+
 const user_login_schema = new mongoose.Schema({
+    full_name: {
+        type: String,
+        required: true
+    },
     email: { // the name of the field
         type: String,
         required: true // NOT NULL
     },
+    user_name: {
+        type: String,
+        required: true
+    },
     password: {
         type: String,
         required: true
-    }
+    },
+    school: String,
+    program: String,
+    assignments: [assignment_schema]
 });
 
 const user_login_model = mongoose.model('user_login', user_login_schema);
@@ -53,7 +101,7 @@ const user_login_model = mongoose.model('user_login', user_login_schema);
 */
 app.post('/register', async (req, res) => {
     const salt_rounds = 10;
-    const { email, password } = req.body;
+    const { fullName, email, userName, password, school, program } = req.body;
 
     if (!email || !password) {
         return res.status(400).send('Must include both email and password.')
@@ -66,11 +114,15 @@ app.post('/register', async (req, res) => {
     const hashed_password = await bcrypt.hash(password, salt_rounds);
 
     const login_instance = new user_login_model({
+        full_name: fullName,
         email: email,
-        password: hashed_password
+        user_name: userName,
+        password: hashed_password,
+        school: school,
+        program: program
     });
 
-    login_instance.save();
+    login_instance.save(); // writes to the DB
 
     req.session.user = true; // TODO - change to uniquely identifying part of user document
     req.session.uID = null; // TODO - change to username / w/e we want to display
@@ -88,12 +140,12 @@ app.post('/register', async (req, res) => {
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
-    if (!email || !password) {
+    if (!email || !password) { // TODO - update this to check that all required items are present
         return res.status(400).send('Must include both email and password.')
     }
-    
+
     const login_info = await user_login_model
-    .find({'email': email, 'password': {$exists: true}});
+    .find({'email': email, 'password': {$exists: true}}); // queries the DB
 
     if (login_info.length === 0) {
         return res.status(400).send({'error': 'No account associated with email.'});
@@ -118,7 +170,10 @@ app.post('/login', async (req, res) => {
     }
 });
 
-app.post('/form/course',(req, res) => {
+/*
+* Course regitration route.
+*/
+app.post('/form/course', (req, res) => {
     if (!req.session || !req.session.user) {
         return res.status(401).send("User not logged in.");
     }
@@ -131,6 +186,29 @@ app.post('/form/course',(req, res) => {
     } // TODO - Add the days and times information
 
     // const course_instance = new course_model(course_information); // TODO - create model, finish course_information object
+});
+
+app.post('/form/assignment', (req, res) => {
+    if (!req.session || !req.session.user) {
+        return res.status(401).send("User not logged in.");
+    }
+
+    const { assignment_name, 
+        course_tags, 
+        assignment_hours, 
+        assignment_due_date, 
+        assignment_worth, 
+        ...task_split } = req.body; // TODO - Work out stuff surrounding task_split
+
+    const assignment_information = {
+        assignment: assignment_name,
+        course: course_tags,
+        hours: assignment_hours,
+        due: assignment_due_date,
+        value: assignment_worth
+    }; // TODO - finish object
+
+    // const assignment_instance = new assignment_model(assignment_information); // TODO - finish above
 });
 
 app.get('/auth/status', (req, res) =>{
