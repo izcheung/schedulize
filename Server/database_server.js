@@ -25,10 +25,6 @@ const assignment_schema = new mongoose.Schema({
         type: String,
         required: true
     },
-    // course: {
-    //     type: String,
-    //     required: true
-    // },
     hours: {
         type: Number,
         required: true,
@@ -189,34 +185,27 @@ app.post('/form/assignment', (req, res) => {
     //     assignment_worth, 
     //     assignment_priority,
     //     ...task_split } = req.body; // TODO - Work out stuff surrounding task_split
-    const { assignment_name, 
+    const { assignment, 
         // course_tags, 
-        assignment_hours, 
-        assignment_due_date, 
-        assignment_worth, 
-        assignment_priority} = req.body; // TODO - Work out stuff surrounding task_split
+        hours, 
+        due, 
+        value, 
+        priority} = req.body; // TODO - Work out stuff surrounding task_split
 
 
     const assignment_information = {
-        assignment: assignment_name,
+        assignment,
         // course: course_tags,
-        hours: assignment_hours,
-        due: assignment_due_date,
-        value: assignment_worth,
-        priority: assignment_priority
+        hours,
+        due,
+        value,
+        priority
     }; // TODO - finish object
 
     // const assignment_instance = new assignment_model(assignment_name, assignment_hours, assignment_due_date, assignment_worth, assignmnet_priority);
     let assignment_instance;
     try {
-        assignment_instance = new assignment_model({
-            assignment: assignment_name,
-        // course: course_tags,
-        hours: assignment_hours,
-        due: assignment_due_date,
-        value: assignment_worth,
-        priority: assignment_priority
-        });
+        assignment_instance = new assignment_model(assignment_information);
     } catch {
         return res.status(400).send(false);
     }
