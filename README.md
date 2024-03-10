@@ -8,7 +8,7 @@ Olivia Grace is a second-term CST student at BCIT. This is her first hackathon a
 
 Dipenvir Kaur 
 
-Irene Cheung
+Irene Cheung is in her second term of the CST program at BCIT. Her role mainly focused on the frontend development of Schedulize.
 
 Jaiden Duncan
 
