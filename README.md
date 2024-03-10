@@ -16,6 +16,7 @@ Peter Senyk
 
 
 # About the webapp
+Schedulize is a web application built to help students' reduce stress and improve their well-being by providing students a calendar that shows them the optimal time to complete their assignments. Students can input their course schedules, answer questions about when they are most productive, and input information about their assignments. Each assignment is given a priority score based on when the assignment is due and how much the assignment is worth. Using their course schedule, productivity information, and assignment priority scores, Schedulize schedules times for students to work on their various assignments. This saves students the time of trying to find time for homework and studying themselves and alleviates students' stress by giving them a clear plan on how they can tackle their workload. 
 
 # Sources
 logo image - https://cdn.iconscout.com/icon/free/png-256/free-calendar-2065964-1746113.png
