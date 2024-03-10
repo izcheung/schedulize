@@ -25,10 +25,10 @@ const assignment_schema = new mongoose.Schema({
         type: String,
         required: true
     },
-    course: {
-        type: String,
-        required: true
-    },
+    // course: {
+    //     type: String,
+    //     required: true
+    // },
     hours: {
         type: Number,
         required: true,
@@ -42,6 +42,10 @@ const assignment_schema = new mongoose.Schema({
         type: Number,
         required: true,
         min: 0
+    },
+    priority:{
+        type: Number,
+        required: true
     }
 });
 
@@ -174,24 +178,52 @@ app.post('/form/course', (req, res) => {
     // const course_instance = new course_model(course_information); // TODO - create model, finish course_information object
 });
 
-app.post('/form/assignment', (req, res) => {
+const assignment_model = mongoose.model('assignment', assignment_schema);
 
+app.post('/form/assignment', (req, res) => {
+    console.log("in database_server for assignment");
+    // const { assignment_name, 
+    //     course_tags, 
+    //     assignment_hours, 
+    //     assignment_due_date, 
+    //     assignment_worth, 
+    //     assignment_priority,
+    //     ...task_split } = req.body; // TODO - Work out stuff surrounding task_split
     const { assignment_name, 
-        course_tags, 
+        // course_tags, 
         assignment_hours, 
         assignment_due_date, 
         assignment_worth, 
-        assignment_priority,
-        ...task_split } = req.body; // TODO - Work out stuff surrounding task_split
+        assignment_priority} = req.body; // TODO - Work out stuff surrounding task_split
+
 
     const assignment_information = {
         assignment: assignment_name,
-        course: course_tags,
+        // course: course_tags,
         hours: assignment_hours,
         due: assignment_due_date,
         value: assignment_worth,
         priority: assignment_priority
     }; // TODO - finish object
+
+    // const assignment_instance = new assignment_model(assignment_name, assignment_hours, assignment_due_date, assignment_worth, assignmnet_priority);
+    let assignment_instance;
+    try {
+        assignment_instance = new assignment_model({
+            assignment: assignment_name,
+        // course: course_tags,
+        hours: assignment_hours,
+        due: assignment_due_date,
+        value: assignment_worth,
+        priority: assignment_priority
+        });
+    } catch {
+        return res.status(400).send(false);
+    }
+    console.log("about to save!!!");
+    assignment_instance.save(); // writes to the DB
+
+    res.status(200).send(true); // 10 minutes
 
     // const assignment_instance = new assignment_model(assignment_information); // TODO - finish above
 });

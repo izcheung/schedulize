@@ -35,6 +35,7 @@ document.getElementById("form").addEventListener("submit", (event) =>{
    
     let a_priority = determinePriority();
     let a_name = document.getElementById("assignment_name").value;
+    let a_hours = document.getElementById("assignment_hours").value;
     let a_worth = document.getElementById("assignment_worth").value;
     let a_date = document.getElementById("assignment_due_date").value;
     
@@ -58,8 +59,9 @@ document.getElementById("form").addEventListener("submit", (event) =>{
     // Create a new form with the data to send to the assignment
     let formData = new FormData();
     formData.append("assignment", a_name);
-    formData.append("value", a_worth);
+    formData.append("hours", a_hours);
     formData.append("due", a_date);
+    formData.append("value", a_worth);
     formData.append("priority", a_priority);
 
         fetch('http://localhost:3000/form/assignment', {
@@ -76,6 +78,8 @@ document.getElementById("form").addEventListener("submit", (event) =>{
 
     // location.href = "landing_page.html";
 });
+
+
 
 function formDataToUrlEncoded(form) {
     console.log("here we are!!!");
