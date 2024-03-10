@@ -23,5 +23,23 @@ document.getElementById('registration-form').addEventListener('submit', function
         // For demonstration purposes, we'll just log the data
         console.log("Form submitted with:", {username, password, email});
         // Here you would typically send the data to a server via AJAX
+        fetch('http://localhost:3000/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: formDataToUrlEncoded(new FormData(this)),
+        }).then(res => res.text())
+        .then(res => console.log(res))
     }
 });
+
+function formDataToUrlEncoded(form) {
+    const pairs = [];
+    for (const [key, value] of form.entries()) {
+        // Encode each key and value, and add them to the pairs array
+        pairs.push(encodeURIComponent(key) + '=' + encodeURIComponent(value));
+    }
+    // Combine the pairs into a single query string
+    return pairs.join('&');
+}

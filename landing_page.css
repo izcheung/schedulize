@@ -26,8 +26,8 @@ p {
 }
 
 a {
-    color: white;
-    text-decoration: none;
+    color: white !important;
+    text-decoration: none !important;
     font-size: 20px;
     letter-spacing: 0.2rem;
 }
@@ -167,20 +167,6 @@ h2{
         display: block;
     }
 
-     /* Animate a white underline to appear when hovering */
-     li a::after {
-        content: "";
-        width: 0;
-        height: 2px;
-        background: white;
-        display: block;
-        margin: auto;
-    }
-
-    li a:hover::after {
-        width: 100%;
-        transition: 0.3s linear width;
-    }
 
     #lg_nav_container {
         font-family: Questrial, sans-serif;

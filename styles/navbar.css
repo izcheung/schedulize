@@ -45,7 +45,7 @@
 /* On hover, change icon and text color */
 .navbar-nav .nav-item .nav-link:hover .material-symbols-outlined,
 .navbar-nav .nav-item .nav-link:hover .nav-text {
-    color: #3688d8; /* Gold color on hover */
+    color: #3688d8; 
 }
 
 /* Ensure full width links for better clickability */
