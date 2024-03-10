@@ -6,7 +6,7 @@ Schedulize is an app to help students break their assignments up into manageable
 
 Olivia Grace is a second-term CST student at BCIT. This is her first hackathon and she is very excited to participate!
 
-Dipenvir Kaur 
+Dipenvir Kaur is a 2nd-term CST student at BCIT. She can't keep calm because she is participating in QDS Hackathon!
 
 Irene Cheung is in her second term of the CST program at BCIT. Her role mainly focused on the frontend development of Schedulize.
 
