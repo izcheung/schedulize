@@ -113,7 +113,7 @@ app.post('/register', async (req, res) => {
 
     login_instance.save(); // writes to the DB
 
-    res.status(200).send(true);
+    res.status(200).send(true); // 10 minutes
 });
 
 /*
@@ -145,7 +145,7 @@ app.post('/login', async (req, res) => {
     }
 
     if (validated) {
-        res.status(200).send('Login successful');
+        res.status(200).send(login_info['user_name']);
     } else {
         res.status(401).send('Incorrect password.'); // 401 is technically wrong here 
     }
@@ -155,9 +155,6 @@ app.post('/login', async (req, res) => {
 * Course regitration route.
 */
 app.post('/form/course', (req, res) => {
-    if (!req.session || !req.session.user) {
-        return res.status(401).send("User not logged in.");
-    }
 
     const { courseName, courseInstructor, ...daysTimes } = req.body;
 
@@ -170,9 +167,6 @@ app.post('/form/course', (req, res) => {
 });
 
 app.post('/form/assignment', (req, res) => {
-    if (!req.session || !req.session.user) {
-        return res.status(401).send("User not logged in.");
-    }
 
     const { assignment_name, 
         course_tags, 
@@ -190,14 +184,6 @@ app.post('/form/assignment', (req, res) => {
     }; // TODO - finish object
 
     // const assignment_instance = new assignment_model(assignment_information); // TODO - finish above
-});
-
-app.get('/auth/status', (req, res) =>{
-    if (req.session && req.session.uID) {
-        res.status(200).send(req.session.uID);
-    } else {
-        res.status(200).send(null);
-    }
 });
 
 app.get('/', async (req, res) => {
