@@ -12,7 +12,7 @@ Irene Cheung is in her second term of the CST program at BCIT. Her role mainly f
 
 Jaiden Duncan
 
-Peter Senyk
+Peter Senyk is in his second term of the Computer Systems Technology program at BCIT. This is his first hackathon and he mainly focused on frontend development.
 
 
 # About the webapp
