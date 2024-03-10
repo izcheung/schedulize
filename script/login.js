@@ -11,7 +11,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
     })
 
     if (username.ok) {
-        storeUser(await username.text());
+        storeUser(...(await username.text()).split('|'));
         location.href = 'landing_page.html';
     } else {
         alert("Incorrect password. Please try again.")
@@ -39,6 +39,7 @@ function formDataToUrlEncoded(form) {
  * 
  * @param {String} username the user's username to store
  */
-function storeUser(username) {
+function storeUser(username, uID) {
     sessionStorage.setItem('user', username);
+    sessionStorage.setItem('ID', uID);
 }
