@@ -15,3 +15,12 @@ function load_skeleton() {
 document.addEventListener('DOMContentLoaded', (event) => {
     load_skeleton();
 });
+
+/**
+ * Gets the user's username.
+ *
+ * @returns String - the user's username, or null
+ */
+function getUser() {
+    return sessionStorage.getItem('user');
+}
