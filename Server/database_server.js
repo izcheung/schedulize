@@ -12,6 +12,8 @@ app.use(cors());
 // simplifies accessing request information in post routes when using HTML forms
 app.use(express.urlencoded({extended: true}));
 
+app.use(express.json()); // For parsing application/json 
+
 /**
  * Connects to the MongoDB cluster.
  */
@@ -45,6 +47,13 @@ const assignment_schema = new mongoose.Schema({
     }
 });
 
+// Class Time Sub-schema
+const classTimeSchema = new mongoose.Schema({
+    day: String,
+    startTime: String,
+    endTime: String
+});
+
 const course_schema = new mongoose.Schema({
     course: {
         type: String,
@@ -54,8 +63,12 @@ const course_schema = new mongoose.Schema({
         type: String,
         required: true
     },
+    classTimes: [classTimeSchema]
     // TODO - Figure out how to store the times / days
 });
+
+const Course = mongoose.model('Course', courseSchema);
+
 
 const user_login_schema = new mongoose.Schema({
     full_name: {
@@ -162,16 +175,23 @@ app.post('/login', async (req, res) => {
 /*
 * Course regitration route.
 */
-app.post('/form/course', (req, res) => {
+app.post('/form/course', async (req, res) => {
 
-    const { courseName, courseInstructor, ...daysTimes } = req.body;
+    const { courseName, courseInstructor, classTimes } = req.body; // Ensure classTimes is structured correctly from the client-side
 
-    const course_information = {
-        course: courseName,
-        instructor: courseInstructor,
-    } // TODO - Add the days and times information
+    try {
+        const newCourse = new Course({
+            course: courseName,
+            instructor: courseInstructor,
+            classTimes: classTimes // Assuming classTimes is an array of objects with day, startTime, endTime
+        });
 
-    // const course_instance = new course_model(course_information); // TODO - create model, finish course_information object
+        await newCourse.save();
+        res.status(200).json({ message: 'Course added successfully' });
+    } catch (error) {
+        console.error('Failed to add course:', error);
+        res.status(500).json({ message: 'Failed to add course', error: error.message });
+    }
 });
 
 const assignment_model = mongoose.model('assignment', assignment_schema);
