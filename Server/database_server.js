@@ -67,7 +67,7 @@ const course_schema = new mongoose.Schema({
     // TODO - Figure out how to store the times / days
 });
 
-const Course = mongoose.model('Course', courseSchema);
+const Course = mongoose.model('Course', course_schema);
 
 
 const user_login_schema = new mongoose.Schema({

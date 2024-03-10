@@ -15,39 +15,40 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    document.getElementById('course-form').addEventListener('submit', function(event) {
+    document.getElementById('course-form').addEventListener('submit', async function(event) {
         event.preventDefault();
-        
+
         const courseName = document.getElementById('courseName').value;
         const courseInstructor = document.getElementById('courseInstructor').value;
         const classTimes = Array.from(document.querySelectorAll('.schedule-block')).map(block => {
             return {
                 day: block.querySelector('.day-select').value,
-                startTime: block.querySelector('.time-input[type="time"]:nth-child(3)').value,
-                endTime: block.querySelector('.time-input[type="time"]:nth-child(4)').value,
+                startTime: block.querySelector('.time-input[type="time"]:first-of-type').value,
+                endTime: block.querySelector('.time-input[type="time"]:last-of-type').value
             };
         });
 
-        // Prepare the course data
-        const courseData = {
-            courseName,
-            courseInstructor,
-            classTimes
-        };
+        // Send the data to the server
+        try {
+            const response = await fetch('/form/course', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ courseName, courseInstructor, classTimes }),
+            });
 
-        // Send an AJAX request to your server
-        $.ajax({
-            url: '/form/course', // Your server endpoint
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(courseData),
-            success: function(response) {
-                console.log('Course added successfully:', response);
-                // Optionally redirect or update UI here
-            },
-            error: function(error) {
-                console.error('Error adding course:', error);
+            if (response.ok) {
+                const result = await response.json();
+                console.log('Course added successfully', result);
+                // Reset the form or redirect the user
+                // document.getElementById('course-form').reset();
+                // window.location.href = '/some-success-page';
+            } else {
+                throw new Error('Failed to add course');
             }
-        });
+        } catch (error) {
+            console.error('Error adding course:', error);
+        }
     });
 });
