@@ -64,11 +64,14 @@ const user_login_schema = new mongoose.Schema({
     },
     email: { // the name of the field
         type: String,
-        required: true // NOT NULL
+        required: true, // NOT NULL
+        index: true, // Acts like a primary key
+        unique: true
     },
     user_name: {
         type: String,
-        required: true
+        required: true,
+        unique: true,
     },
     password: {
         type: String,
@@ -102,14 +105,19 @@ app.post('/register', async (req, res) => {
 
     const hashed_password = await bcrypt.hash(password, salt_rounds);
 
-    const login_instance = new user_login_model({
-        full_name: fullName,
-        email: email,
-        user_name: userName,
-        password: hashed_password,
-        school: school,
-        program: program
-    });
+    let login_instance;
+    try {
+        login_instance = new user_login_model({
+            full_name: fullName,
+            email: email,
+            user_name: userName,
+            password: hashed_password,
+            school: school,
+            program: program
+        });
+    } catch {
+        return res.status(400).send(false);
+    }
 
     login_instance.save(); // writes to the DB
 
