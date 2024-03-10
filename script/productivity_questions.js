@@ -44,6 +44,7 @@ function displayResult() {
     const timesOfDay = ["Morning", "Afternoon", "Evening"];
     const resultDiv = document.getElementById("result");
     resultDiv.innerText = `You're most productive in the ${timesOfDay[maxScoreIndex]}!`;
+    console.log("Final scores:", scores);
     document.getElementById("questionnaire").style.display = "none"; // Hide questionnaire
 }
 
