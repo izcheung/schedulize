@@ -10,7 +10,7 @@ Dipenvir Kaur is a 2nd-term CST student at BCIT. She can't keep calm because she
 
 Irene Cheung is in her second term of the CST program at BCIT. Her role mainly focused on the frontend development of Schedulize.
 
-Jaiden Duncan
+Jaiden Duncan is in his 2nd semester of the CST program at BCIT. This is his first hackathon, and he focused on the backend development.
 
 Peter Senyk is in his second term of the Computer Systems Technology program at BCIT. This is his first hackathon and he mainly focused on frontend development.
 
