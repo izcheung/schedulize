@@ -6,15 +6,22 @@ html, body {
     font-size: 20px;
 }
 
-.profile-header .profile-title {
+.profile-header .profile-title,
+.questionnaire-section .section-title,
+.productivity-results .section-title {
     font-size: 2.5rem;
     font-weight: bold;
     color: #1936B6; /* Dark blue for thematic consistency */
     text-align: center;
+    margin-bottom: 20px; /* Space below the title */
 }
 
 .card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff; /* Light background for visibility */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Consistent shadow for depth */
+    margin-bottom: 20px; /* Space between cards */
 }
 
 .card-body .card-title {
@@ -22,7 +29,6 @@ html, body {
     align-items: center;
     gap: 10px;
     font-size: 1.5rem;
-    margin-bottom: 20px;
 }
 
 .card-body .card-text {
@@ -33,76 +39,48 @@ html, body {
     margin-bottom: 10px;
 }
 
-.card-body .card-links a {
+.card-body .card-links a,
+.questionnaire-section a.btn-warning,
+.productivity-results ul li {
     margin-right: 10px;
+    margin-bottom: 10px; /* Consistent margin for elements */
 }
 
 @media (max-width: 767px) {
     .card-body .card-links a {
         display: block;
         width: 100%;
-        margin-bottom: 10px;
     }
 }
 
-.courses-section .section-title {
-    font-size: 2rem;
-    color: #1936B6; /* Keeping the thematic consistency */
-}
-
-.course-item {
+.course-item,
+.questionnaire-section,
+.productivity-results {
     background-color: #f8f9fa;
     border-radius: 5px;
     padding: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Space between course items and sections */
 }
 
-.course-name {
+.course-name,
+.productivity-results h5.results-title {
     font-size: 1.25rem;
     margin-bottom: 5px;
 }
 
-.course-details {
+.course-details,
+.productivity-results ul li {
     font-size: 1rem;
     margin-bottom: 10px;
 }
 
-.course-actions .btn {
+.course-actions .btn,
+.questionnaire-section a.btn-warning {
     font-size: 0.875rem; /* Slightly smaller buttons for actions */
+    width: auto; /* Auto width for buttons inside courses and questionnaire */
 }
 
 .add-course a.btn {
     width: 100%; /* Full-width button for adding new course */
-}
-
-.questionnaire-section .section-title {
-    font-size: 2rem;
-    color: #1936B6;
-}
-
-.btn-warning {
-    background-color: #ffc107; /* Bootstrap warning color, but you can choose anything */
-    border: none;
-    color: #000; /* Text color for contrast */
-}
-
-.profile-content, .quiz-action, #quiz-results {
-    background-color: #fff; /* Light background for visibility */
-    padding: 20px;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Consistent shadow for depth */
-    margin-bottom: 20px;
-}
-
-#quiz-results h5.results-title {
-    color: #1936B6; /* Thematic blue color for headers */
-    margin-bottom: 15px;
-}
-
-.btn-primary {
-    /* Ensure button styles are consistent with the site's theme */
-}
-
-@media (max-width: 991px) {
-    /* Adjustments for smaller screens, if needed */
 }
