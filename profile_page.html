@@ -12,10 +12,9 @@
 </head>
 <body>
     <nav id="navbar_placeholder"></nav>
-
     <main class="mt-5">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <!-- Profile Information Column -->
                 <div class="col-lg-8 mb-5">
                     <div class="profile-header mb-4">
@@ -31,27 +30,19 @@
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h5 class="card-title mb-3">
-                                            <span class="material-symbols-outlined">
-                                                person
-                                            </span>
+                                            <span class="material-symbols-outlined">person</span>
                                             Username
                                         </h5>
                                         <p class="card-text">
-                                            <span class="material-symbols-outlined">
-                                                email
-                                            </span>
+                                            <span class="material-symbols-outlined">email</span>
                                             user@example.com
                                         </p>
                                         <p class="card-text">
-                                            <span class="material-symbols-outlined">
-                                                school
-                                            </span>
+                                            <span class="material-symbols-outlined">school</span>
                                             School Name
                                         </p>
                                         <p class="card-text">
-                                            <span class="material-symbols-outlined">
-                                                grade
-                                            </span>
+                                            <span class="material-symbols-outlined">grade</span>
                                             Program or Degree
                                         </p>
                                         <div class="card-links">
@@ -61,31 +52,35 @@
                                         <div class="courses-section mt-4">
                                             <h2 class="section-title mb-3" id="your_courses">Your Courses</h2>
                                             <div id="courses-list">
-                                                <!-- Dynamically loaded courses will go here -->
-                                                <!-- Example static course for layout -->
-                                                <div class="course-item mb-3">
-                                                    <h5 class="course-name">Introduction to Programming</h5>
-                                                    <p class="course-details">Monday & Wednesday - 10:00 AM to 12:00 PM</p>
-                                                    <div class="course-actions">
-                                                        <a href="#" class="btn btn-info btn-sm">Edit</a>
-                                                    </div>
-                                                </div>
-                                                <!-- Repeat for other courses -->
+                                                <!-- Courses will be dynamically loaded here -->
                                             </div>
                                             <div class="add-course mt-3">
-                                                <a href="add_course_form.html" class="btn" id="add_course_btn">Add New Course</a>
+                                                <a href="add_course_form.html" class="btn btn-success" id="add_course_btn">Add New Course</a>
                                             </div>
-                                            <div class="questionnaire-section mt-4">
-                                                <h2 class="section-title mb-3">Find Your Productive Times</h2>
-                                                <a href="productivity_questions.html" class="btn btn-warning">Take the Productivity Quiz</a>
-                                            </div>
-                                            <div class="productivity-results mt-4">
-                                                <h2 class="section-title mb-3">Your Productivity Analysis</h2>
-                                                <ul>
-                                                    <li><strong>Most Productive Time:</strong> [Most productive time here]</li>
-                                                    <li><strong>Mid Productive Time:</strong> [Mid productive time here]</li>
-                                                    <li><strong>Least Productive Time:</strong> [Least productive time here]</li>
-                                                </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Close Profile Information Column after its content -->
+                </div>
+                
+                <!-- Productivity Times and Analysis Column -->
+                <div class="col-lg-4 mb-5">
+                    <!-- Productivity Quiz Section -->
+                    <div class="questionnaire-section card">
+                        <h2 class="section-title mb-3">Find Your Productive Times</h2>
+                        <a href="productivity_questions.html" class="btn btn-warning">Take the Productivity Quiz</a>
+                    </div>
+                    <!-- Productivity Results Section -->
+                    <div class="productivity-results card mt-4">
+                        <h2 class="section-title mb-3">Your Productivity Analysis</h2>
+                        <ul>
+                            <li><strong>Most Productive Time:</strong> [Most productive time here]</li>
+                            <li><strong>Mid Productive Time:</strong> [Mid productive time here]</li>
+                            <li><strong>Least Productive Time:</strong> [Least productive time here]</li>
+                        </ul>
                                             </div>
                                             
                                         </div>
