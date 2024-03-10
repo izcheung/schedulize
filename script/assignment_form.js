@@ -30,7 +30,8 @@ document.getElementById("num_tasks_btn").addEventListener("click", function(ev){
     }
 })
 
-document.getElementById("add_assignment").addEventListener("click", function(ev){
+document.getElementById("form").addEventListener("submit", (event) =>{
+    event.preventDefault();
     console.log("clicked");
     determinePriority();
     location.href = "landing_page.html";
