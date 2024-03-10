@@ -55,9 +55,38 @@ document.getElementById("form").addEventListener("submit", (event) =>{
         }
     }
 
+    // Create a new form with the data to send to the assignment
+    let formData = new FormData();
+    formData.append("assignment", a_name);
+    formData.append("value", a_worth);
+    formData.append("due", a_date);
+    formData.append("priority", a_priority);
 
-    location.href = "landing_page.html";
+        fetch('http://localhost:3000/form/assignment', {
+            
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: formDataToUrlEncoded(formData),
+        }).then(res => res.text())
+        .then(res => console.log(res))
+        console.log("here we are again!!!");
+
+
+    // location.href = "landing_page.html";
 });
+
+function formDataToUrlEncoded(form) {
+    console.log("here we are!!!");
+    const pairs = [];
+    for (const [key, value] of form.entries()) {
+        // Encode each key and value, and add them to the pairs array
+        pairs.push(encodeURIComponent(key) + '=' + encodeURIComponent(value));
+    }
+    // Combine the pairs into a single query string
+    return pairs.join('&');
+}
 
 
 

@@ -173,6 +173,7 @@ app.post('/form/assignment', (req, res) => {
         assignment_hours, 
         assignment_due_date, 
         assignment_worth, 
+        assignment_priority,
         ...task_split } = req.body; // TODO - Work out stuff surrounding task_split
 
     const assignment_information = {
@@ -180,7 +181,8 @@ app.post('/form/assignment', (req, res) => {
         course: course_tags,
         hours: assignment_hours,
         due: assignment_due_date,
-        value: assignment_worth
+        value: assignment_worth,
+        priority: assignment_priority
     }; // TODO - finish object
 
     // const assignment_instance = new assignment_model(assignment_information); // TODO - finish above
