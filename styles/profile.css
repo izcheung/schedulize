@@ -109,9 +109,6 @@ html, body {
     margin-bottom: 15px;
 }
 
-.btn-primary {
-    /* Ensure button styles are consistent with the site's theme */
-}
 
 @media (max-width: 991px) {
     /* Adjustments for smaller screens, if needed */
