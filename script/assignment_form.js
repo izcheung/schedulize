@@ -32,8 +32,30 @@ document.getElementById("num_tasks_btn").addEventListener("click", function(ev){
 
 document.getElementById("form").addEventListener("submit", (event) =>{
     event.preventDefault();
-    console.log("clicked");
-    determinePriority();
+   
+    let a_priority = determinePriority();
+    let a_name = document.getElementById("assignment_name").value;
+    let a_worth = document.getElementById("assignment_worth").value;
+    let a_date = document.getElementById("assignment_due_date").value;
+    
+    // figure out a way to get the course that was checked --> probably need to figure out how we are populating the courses first
+    let a_num_tasks = 0;
+    if (document.getElementById("yes_task_split").checked){
+        
+        a_num_tasks = document.getElementById("num_tasks").value;
+        // can get each task here --> I'm not completely sure how we are storing the tasks
+        task_hours = [];
+        for (let i = 0; i < a_num_tasks; i++){
+            task_hours.push(document.getElementById("task" + i).value);
+            
+        }
+        for (let i = 0; i < a_num_tasks; i++){
+            console.log(task_hours[i]);
+            
+        }
+    }
+
+
     location.href = "landing_page.html";
 });
 
