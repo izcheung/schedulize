@@ -1,6 +1,13 @@
+body, html{
+    margin: 0;
+    padding: 0;
+}
+
 h1{
     font-size: 40px;
 }
+
+
 
 #content{
     height: 100%;

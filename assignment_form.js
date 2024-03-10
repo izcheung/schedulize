@@ -30,7 +30,13 @@ document.getElementById("num_tasks_btn").addEventListener("click", function(ev){
     }
 })
 
-document.getElementById("add_assignment").addEventListener("click", determinePriority);
+document.getElementById("add_assignment").addEventListener("click", function(ev){
+    console.log("clicked");
+    determinePriority();
+    location.href = "landing_page.html";
+});
+
+
 
 function determinePriority(){
     let worth = document.getElementById("assignment_worth").value;

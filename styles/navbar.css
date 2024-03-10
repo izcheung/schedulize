@@ -22,8 +22,8 @@
     border-color: rgba(255,255,255,0.5); /* Toggler icon border */
 }
 
-.navbar .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='rgba(255, 255, 255, 0.5)' stroke-width='3' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+.navbar .navbar-toggler-icon {background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='rgba(255, 255, 255, 0.5)' stroke-width='3' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+    
 }
 
 .navbar-nav .nav-item .nav-link {

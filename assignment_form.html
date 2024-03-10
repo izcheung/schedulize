@@ -28,9 +28,10 @@
 
 <body class="text-white text-center">
 
-    <nav id="navbar_placeholder"></nav>
+    
     <!--Add the nav bar here when we have it-->
-    <div id="content" class="py-3">
+    <div id="content">
+        <nav id="navbar_placeholder"></nav>
         <form id="form">
             <!--Title-->
             <h1 id="form_title" class="my-3">
@@ -39,24 +40,24 @@
             <div id="form_contents">
                 <!--assignment name-->
                 <label class="px-3" for="assignment_name">Enter your assignment name:</label>
-                <input type="text" id="assignment_name" value="Assignment">
+                <input type="text" id="assignment_name" value="Assignment" required>
 
                 <div class="my-5"></div>
                 <!--radio buttons for each class-->
                 <!--populate this with users courses from the database-->
                 <label class="p-3">What course is this for?</label>
                 <div id="course_tags p-3">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="course_1">
+                    <input class="form-check-input" type="radio" name="course_tag" id="course_1" required>
                     <label class="form-check-label" for="course_1">
                         COMP 2522
                     </label>
                     <label class="px-3"></label>
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="course_2">
+                    <input class="form-check-input" type="radio" name="course_tag" id="course_2">
                     <label class="form-check-label" for="course_2">
                         COMP 2510
                     </label>
                     <label class="px-3"></label>
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="course_3">
+                    <input class="form-check-input" type="radio" name="course_tag" id="course_3">
                     <label class="form-check-label" for="course_3">
                         COMP 2714
                     </label>
@@ -65,29 +66,29 @@
                 <div class="my-5"></div>
                 <!--user chooses number of hours-->
                 <label class="p-3" for="assignment_hours">How many hours do you expect this assignment to take?</label>
-                <input type="number" value="3" id="assignment_hours">
+                <input type="number" value="3" id="assignment_hours" required>
 
                 <div class="my-5"></div>
 
                 <!--choose due date-->
                 <label class="px-3">When is your assignment due?</label>
-                <input type="date" id="assignment_due_date">
+                <input type="date" id="assignment_due_date" required>
 
                 <div class="my-5"></div>
 
                 <label class="px-3">What percent of your total grade is your assignment worth? </label>
-                <input type="number" id="assignment_worth" min="0" max="100" value="10">
+                <input type="number" id="assignment_worth" min="0" max="100" value="10" required>
 
                 <div class="my-5"></div>
                 <!--tasks-->
                 <div id="task_split">
                     <label class="p-3">Do you want to split your assignment into tasks?</label><br>
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="yes_task_split">
+                    <input class="form-check-input" type="radio" name="split_tasks" id="yes_task_split" required>
                     <label class="form-check-label" for="yes_task_split">
                         Yes
                     </label>
                     <label class="px-3"></label>
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="no_task_split" checked>
+                    <input class="form-check-input" type="radio" name="split_tasks" id="no_task_split" checked>
                     <label class="form-check-label" for="no_task_split">
                         No
                     </label>
