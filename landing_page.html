@@ -23,6 +23,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <title>Schedulize</title>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+    <!---------------jQuery -------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Load icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script>
 
       document.addEventListener('DOMContentLoaded', function() {
@@ -98,6 +102,7 @@
     </script>
 </head>
 <body>
+  <nav id="navbar_placeholder"></nav>
     <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -128,17 +133,20 @@
                     </span>
                 </section>
             </div>
-    
+        
             <div id="calendar">
+                
                 <!-- <nav> <span class="material-symbols-outlined" id="profile-icon"> account_circle </span></nav> -->
-              
+            
                 <div id='calendar'></div>
             </div>
+        
                 
                 
-    
+    <script src="./script/skeleton.js"></script>
     <script src="script.js"></script>
     <script src="calendar.js"></script>
+    
 </body>
 </html>
 

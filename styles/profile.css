@@ -74,3 +74,44 @@ html, body {
 .add-course a.btn {
     width: 100%; /* Full-width button for adding new course */
 }
+
+.questionnaire-section .section-title {
+    font-size: 2rem;
+    color: #1936B6;
+}
+
+.btn-warning {
+    background-color: #ffc107; /* Bootstrap warning color, but you can choose anything */
+    border: none;
+    color: #000; /* Text color for contrast */
+}
+
+.profile-content, .quiz-action, #quiz-results {
+    background-color: #fff; /* Light background for visibility */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Consistent shadow for depth */
+    margin-bottom: 20px;
+}
+
+#quiz-results h5.results-title {
+    color: #1936B6; /* Thematic blue color for headers */
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    /* Ensure button styles are consistent with the site's theme */
+}
+
+@media (max-width: 991px) {
+    /* Adjustments for smaller screens, if needed */
+}
+
+#add_course_btn {
+    background-color: #26558e;
+    color: white;
+}
+
+#your_courses {
+    color: #354754;
+}

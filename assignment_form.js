@@ -26,7 +26,7 @@ document.getElementById("num_tasks_btn").addEventListener("click", function(ev){
         task.appendChild(taskLabel);
         task.appendChild(taskInput);
         document.getElementById("display_tasks").appendChild(task);
-        console.log("hi");
+        
     }
 })
 
@@ -71,6 +71,6 @@ function determinePriority(){
 
     console.log("priority number: " + priority);
 
-    
+    return priority;
 }
 
