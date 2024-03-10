@@ -29,11 +29,25 @@ document.getElementById('registration-form').addEventListener('submit', function
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
             body: formDataToUrlEncoded(new FormData(this)),
-        }).then(res => res.text())
-        .then(res => console.log(res))
+        }).then(res => {if (res) {storeUser(username)} })
     }
 });
 
+/**
+ * Stores a user's username in the session storage.
+ * 
+ * @param {String} username the user's username to store
+ */
+function storeUser(username) {
+    sessionStorage.setItem('user', username);
+}
+
+/**
+ * Encodes a form in the application/x-www-form-urlencoded format.
+ * 
+ * @param {FormData} form A form to translate into a form url 
+ * @returns String - the form url to send to the server
+ */
 function formDataToUrlEncoded(form) {
     const pairs = [];
     for (const [key, value] of form.entries()) {
