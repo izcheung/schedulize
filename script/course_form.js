@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Send the data to the server
         try {
-            const response = await fetch('/form/course', {
+            const response = await fetch('http://localhost:3000/form/course', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

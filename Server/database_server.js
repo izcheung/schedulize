@@ -48,7 +48,7 @@ const assignment_schema = new mongoose.Schema({
 });
 
 // Class Time Sub-schema
-const classTimeSchema = new mongoose.Schema({
+const class_times_schema = new mongoose.Schema({
     day: String,
     startTime: String,
     endTime: String
@@ -63,8 +63,8 @@ const course_schema = new mongoose.Schema({
         type: String,
         required: true
     },
-    classTimes: [classTimeSchema]
-    // TODO - Figure out how to store the times / days
+    class_times: [class_times_schema]
+
 });
 
 const Course = mongoose.model('Course', course_schema);
@@ -176,18 +176,22 @@ app.post('/login', async (req, res) => {
 * Course regitration route.
 */
 app.post('/form/course', async (req, res) => {
-
-    const { courseName, courseInstructor, classTimes } = req.body; // Ensure classTimes is structured correctly from the client-side
-
     try {
+        const { courseName, courseInstructor, classTimes } = req.body;
+
+        // Make sure all fields are provided
+        if (!courseName || !courseInstructor || !classTimes) {
+            return res.status(400).json({ message: 'Missing required fields' });
+        }
+
         const newCourse = new Course({
             course: courseName,
             instructor: courseInstructor,
-            classTimes: classTimes // Assuming classTimes is an array of objects with day, startTime, endTime
+            class_times
         });
 
-        await newCourse.save();
-        res.status(200).json({ message: 'Course added successfully' });
+        const savedCourse = await newCourse.save();
+        res.status(200).json({ message: 'Course added successfully', courseId: savedCourse._id });
     } catch (error) {
         console.error('Failed to add course:', error);
         res.status(500).json({ message: 'Failed to add course', error: error.message });
