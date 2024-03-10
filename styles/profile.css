@@ -1,5 +1,5 @@
 html, body {
-    height: 100%; /* Ensure the body takes up full viewport height */
+    height: 100vh; /* Ensure the body takes up full viewport height */
     margin: 0; /* Remove default margin */
     background: linear-gradient(rgba(134, 152, 216, 0.7), rgba(12, 88, 169, 0.7)); /* Apply background to entire page */
     background-size: cover; /* Cover the entire page */
@@ -9,22 +9,28 @@ html, body {
 .profile-header .profile-title,
 .questionnaire-section .section-title,
 .productivity-results .section-title {
-    font-size: 2.5rem;
     font-weight: bold;
-    color: #1936B6; /* Dark blue for thematic consistency */
+    color: white; 
     text-align: center;
     margin-bottom: 20px; /* Space below the title */
 }
 
 .card {
-    background-color: #fff; /* Light background for visibility */
+    background-color: transparent !important; /* Light background for visibility */
     padding: 20px;
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Consistent shadow for depth */
     margin-bottom: 20px; /* Space between cards */
 }
 
+div.card{
+    border: white 2px solid;
+}
+
+
+
 .card-body .card-title {
+    color: white;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -32,6 +38,7 @@ html, body {
 }
 
 .card-body .card-text {
+    color: white;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -87,7 +94,7 @@ html, body {
 
 .questionnaire-section .section-title {
     font-size: 2rem;
-    color: #1936B6;
+    color: white;
 }
 
 .btn-warning {
@@ -97,10 +104,8 @@ html, body {
 }
 
 .profile-content, .quiz-action, #quiz-results {
-    background-color: #fff; /* Light background for visibility */
+    background-color: transparent; /* Light background for visibility */
     padding: 20px;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Consistent shadow for depth */
     margin-bottom: 20px;
 }
 
@@ -109,6 +114,15 @@ html, body {
     margin-bottom: 15px;
 }
 
+
+#productivity_btn {
+    background-color: #26558e;
+    color: white;
+}
+
+li {
+    color: white;
+}
 
 @media (max-width: 991px) {
     /* Adjustments for smaller screens, if needed */
@@ -121,4 +135,8 @@ html, body {
 
 #your_courses {
     color: #354754;
+}
+
+#profile_picture {
+    border-radius: 10px;
 }

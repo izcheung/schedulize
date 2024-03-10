@@ -121,7 +121,7 @@ app.post('/register', async (req, res) => {
 
     login_instance.save(); // writes to the DB
 
-    res.status(200).send(true); // 10 minutes
+    res.status(200).send([true, login_instance['_id']]);
 });
 
 /*
@@ -153,7 +153,7 @@ app.post('/login', async (req, res) => {
     }
 
     if (validated) {
-        res.status(200).send(login_info[0]['user_name']);
+        res.status(200).send([login_info[0]['user_name'], login_info[0]['_id']].join('|'));
     } else {
         res.status(401).send('Incorrect password.'); // 401 is technically wrong here 
     }

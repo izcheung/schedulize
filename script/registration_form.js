@@ -29,7 +29,14 @@ document.getElementById('registration-form').addEventListener('submit', function
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
             body: formDataToUrlEncoded(new FormData(this)),
-        }).then(res => {if (res) {storeUser(username)} })
+        }).then(res => res.json())
+        .then(([loginSucceeded, loginID]) => {
+            if (loginSucceeded) {
+                storeUser(username, loginID);
+            } else {
+                console.log("failed")
+            }
+        });
     }
 });
 
@@ -37,9 +44,11 @@ document.getElementById('registration-form').addEventListener('submit', function
  * Stores a user's username in the session storage.
  * 
  * @param {String} username the user's username to store
+ * @param {String} uID the user's ID to store
  */
-function storeUser(username) {
+function storeUser(username, uID) {
     sessionStorage.setItem('user', username);
+    sessionStorage.setItem('ID', uID);
 }
 
 /**
