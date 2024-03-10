@@ -1,7 +1,6 @@
 // Module imports
 const mongoose = require('mongoose');
 const express = require('express');
-const session = require('express-session');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 
@@ -12,16 +11,6 @@ app.use(cors());
 
 // simplifies accessing request information in post routes when using HTML forms
 app.use(express.urlencoded({extended: true}));
-
-// sets up allowing cookies
-app.use(session({
-    secret: '-09234-0qdjfoia-oidsfjqwefop;lwec}}o[{okie;l]][091-82=',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { 
-        // secure: true // needs https
-    } 
-  }));
 
 /**
  * Connects to the MongoDB cluster.
@@ -124,11 +113,7 @@ app.post('/register', async (req, res) => {
 
     login_instance.save(); // writes to the DB
 
-    req.session.user = true; // TODO - change to uniquely identifying part of user document
-    req.session.uID = null; // TODO - change to username / w/e we want to display
-
-    res.status(200).send('Registration successful');
-    // res.redirect(303, 'http://127.0.0.1:5501/landing_page.html');
+    res.status(200).send(true);
 });
 
 /*
@@ -160,11 +145,7 @@ app.post('/login', async (req, res) => {
     }
 
     if (validated) {
-        req.session.user = true; // TODO - change to uniquely identifying part of user document
-        req.session.uID = null; // TODO - change to username / w/e we want to display
-
         res.status(200).send('Login successful');
-        // res.redirect(303, 'http://127.0.0.1:5501/landing_page.html');
     } else {
         res.status(401).send('Incorrect password.'); // 401 is technically wrong here 
     }
