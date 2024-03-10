@@ -76,7 +76,7 @@ document.getElementById("form").addEventListener("submit", (event) =>{
         console.log("here we are again!!!");
 
 
-    // location.href = "landing_page.html";
+    location.href = "landing_page.html";
 });
 
 
