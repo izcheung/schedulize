@@ -153,7 +153,7 @@ app.post('/login', async (req, res) => {
     }
 
     if (validated) {
-        res.status(200).send(login_info['user_name']);
+        res.status(200).send(login_info[0]['user_name']);
     } else {
         res.status(401).send('Incorrect password.'); // 401 is technically wrong here 
     }
