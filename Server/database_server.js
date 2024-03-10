@@ -187,7 +187,7 @@ app.post('/form/course', async (req, res) => {
         const newCourse = new Course({
             course: courseName,
             instructor: courseInstructor,
-            class_times
+            class_times: classTimes,
         });
 
         const savedCourse = await newCourse.save();
@@ -239,6 +239,27 @@ app.post('/form/assignment', (req, res) => {
     res.status(200).send(true); // 10 minutes
 
     // const assignment_instance = new assignment_model(assignment_information); // TODO - finish above
+
+
+    // Node.js/Express server-side code for GET endpoints
+app.get('/api/courses', async (req, res) => {
+    try {
+        const courses = await Course.find(); // Modify based on your schema
+        res.json(courses); // Send courses data as JSON
+    } catch (error) {
+        res.status(500).send('Error retrieving courses');
+    }
+});
+
+app.get('/api/assignments', async (req, res) => {
+    try {
+        const assignments = await Assignment.find(); // Modify based on your schema
+        res.json(assignments); // Send assignments data as JSON
+    } catch (error) {
+        res.status(500).send('Error retrieving assignments');
+    }
+});
+
 });
 
 app.get('/', async (req, res) => {
